@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+
 import Nav from "./components/Nav/Nav";
 import Hero from "./components/Hero/Hero";
 import Gallery from "./components/Gallery/Gallery";
@@ -7,13 +8,16 @@ import Footer from "./components/Footer/Footer";
 import About from "./pages/About";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
-import ScrollToTop from "./components/ScrollToTop"; // optional but good UX
 import GalleryPage from "./pages/Gallery";
-
+import ScrollToTop from "./components/ScrollToTop";
+import WelcomeBanner from "./components/WelcomeBanner/WelcomeBanner";
+import EnquiryBanner from "./components/EnquiryBanner/EnquiryBanner";
 // Home page composed of main sections
 function Home() {
   return (
     <>
+      <WelcomeBanner />
+      <EnquiryBanner />
       <Hero />
       <Gallery />
       <Testimonials />
@@ -24,13 +28,9 @@ function Home() {
 export default function App() {
   return (
     <>
-      {/* Scroll to top on route change */}
       <ScrollToTop />
-
-      {/* Navbar always visible */}
       <Nav />
 
-      {/* Routed pages */}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -41,7 +41,6 @@ export default function App() {
         </Routes>
       </main>
 
-      {/* Footer always visible */}
       <Footer />
     </>
   );
